@@ -1,19 +1,14 @@
-variable "bucket_name" {
-     description = "Name of the S3 bucket"
-     type        = string
-   }
+variable "aws_region" {
+  description = "AWS region"
+  type        = string
+}
 
-   variable "lambda_function_name" {
-     description = "Name of the Lambda function"
-     type        = string
-   }
+variable "cluster_name" {
+  description = "Name for the EKS cluster"
+  type        = string
+}
 
-   variable "api_gateway_name" {
-     description = "Name of the API Gateway"
-     type        = string
-   }
-
-   variable "region" {
-     description = "AWS region"
-     type        = string
-   }
+variable "ecr_repository_name" {
+  description = "Name for the ECR repository"
+  type        = string
+}
