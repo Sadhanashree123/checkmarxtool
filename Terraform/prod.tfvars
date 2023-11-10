@@ -1,3 +1,3 @@
-EKS_name          = "prod-cluster"
-ECR_name          = "prod-ecr"
-region            = "eastus2"
+cluster_name               = "prod-cluster"
+ecr_repository_name        = "prod-ecr"
+region                     = "eastus2"
