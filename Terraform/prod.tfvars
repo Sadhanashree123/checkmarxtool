@@ -1,4 +1,3 @@
-bucket_name          = "prod-mybucket"
-lambda_function_name = "prod-mylambda"
-api_gateway_name     = "prod-myapigateway"
-region               = "eastus2
+EKS_name          = "prod-cluster"
+ECR_name          = "prod-ecr"
+region            = "eastus2"
