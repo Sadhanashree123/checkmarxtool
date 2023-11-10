@@ -1,3 +1,3 @@
 EKS_name          = "dev-cluster"
-ECR_name          = "dev-ecr"
+aws_ecr_repository         = "dev-ecr"
 region            = "eastus2"
