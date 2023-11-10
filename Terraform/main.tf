@@ -1,19 +1,17 @@
 provider "aws" {
-     region = var.region
-   }
+  region = var.aws_region
+}
 
-   resource "aws_s3_bucket" "mybucket" {
-     bucket = var.bucket_name
-     acl    = "private"
-   }
+# Create an EKS cluster
+module "eks_cluster" {
+  source          = "terraform-aws-modules/eks/aws"
+  cluster_name    = var.cluster_name
+  subnets         = ["subnet-xxxxxxxxxxxxxxxxx", "subnet-yyyyyyyyyyyyyyyyy"]  
+  vpc_id          = "vpc-xxxxxxxxxxxxxxxxx" 
+  cluster_version = "1.21" 
+}
 
-   resource "aws_lambda_function" "mylambda" {
-     function_name = var.lambda_function_name
-     handler      = "index.handler"
-     runtime      = "nodejs14.x"
-   }
-
-   resource "aws_api_gateway_rest_api" "myapigateway" {
-     name        = var.api_gateway_name
-     description = "My API Gateway"
-   }
+# Create an ECR repository
+resource "aws_ecr_repository" "ecr_repo" {
+  name = var.ecr_repository_name
+}
