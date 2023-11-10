@@ -1,4 +1,3 @@
-bucket_name          = "dev-mybucket"
-lambda_function_name = "dev-mylambda"
-api_gateway_name     = "dev-myapigateway"
-region               = "eastus2"
+EKS_name          = "dev-cluster"
+ECR_name          = "dev-ecr"
+region            = "eastus2"
