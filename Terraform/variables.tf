@@ -1,3 +1,12 @@
+variable "region" {
+  description = "AWS region"
+  type = string
+}
+
+variable "ecr_repository_name" {
+  description = "Repository name"
+  type = string
+}
 variable "networking" {
   type = object({
     cidr_block      = string
