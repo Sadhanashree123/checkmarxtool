@@ -33,7 +33,7 @@ jobs:
       run: |
         set -x
         ls -la  # List files in the current directory for debugging
-        terraform plan -var-file=dev.tfvars -out=tfplan
+        terraform plan -var-file=prod.tfvars -out=tfplan
       working-directory: Terraform  # Adjust the working directory
 
     - name: Show Plan Output - Prod
