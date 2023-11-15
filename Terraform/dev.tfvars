@@ -1,3 +1,2 @@
-cluster_name               = "dev-cluster"
-ecr_repository_name        = "dev-ecr"
-region                     = "eastus2"
+region = "us-west-2"
+ecr_repository_name = "mydevsecopsdev-ecr"
