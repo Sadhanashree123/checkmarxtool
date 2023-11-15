@@ -1,5 +1,5 @@
 provider "aws" {
-  region = var.aws_region
+  region = var.region
 }
 # Create an ECR repository
 resource "aws_ecr_repository" "ecr_repo" {
