@@ -13,9 +13,6 @@ resource "aws_ecr_repository" "ecr_repo" {
 data "aws_availability_zones" "azs" {
     state = "available"
 }
-variable "region" {
-    default = "us-west-2"
-}
 data "aws_availability_zones" "available" {}
 locals {
     cluster_name = "EKS-Cluster"
