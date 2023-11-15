@@ -11,9 +11,7 @@ resource "aws_ecr_repository" "ecr_repo" {
  }
 }
 module "aws_vpc" {
-  source          = "github.com/erozedguy/AWS-VPC-terraform-module.git"
   networking      = var.networking
-  region          = var.region
   security_groups = var.security_groups
 }
 resource "aws_iam_role" "EKSClusterRole" {
