@@ -1,8 +1,10 @@
 name: Terraform Deployment
+
 on:
   push:
     branches:
-      - dev
+      - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -27,44 +29,13 @@ jobs:
       run: terraform init
       working-directory: Terraform  # Adjust the working directory
 
-    - name: Terraform Plan - Dev
-      run: |
-        set -x
-        ls -la  # List files in the current directory for debugging
-        terraform plan -var-file=dev.tfvars -out=tfplan
-
-      working-directory: Terraform  # Adjust the working directory
-
-    - name: Terraform Apply - Dev
-      run: |
-        ls -la  # List files in the current directory for debugging
-        terraform apply -auto-approve tfplan
-
-      working-directory: Terraform  # Adjust the working directory
-
-    - name: Show Dev Output
-      run: |
-        echo "successfull"
-
     - name: Terraform Plan - Prod
       run: |
         set -x
         ls -la  # List files in the current directory for debugging
-        terraform plan -var-file=prod.tfvars -out=tfplan
-
+        terraform plan -var-file=dev.tfvars -out=tfplan
       working-directory: Terraform  # Adjust the working directory
 
     - name: Show Plan Output - Prod
       run: |
-        echo "successfull"
-
-    - name: Terraform Apply - Prod
-      run: |
-        ls -la  # List files in the current directory for debugging
-        terraform apply -auto-approve tfplan
-
-      working-directory: Terraform  # Adjust the working directory
-
-    - name: Show Prod Output
-      run: |
-        echo "successfull"
+        echo "Prod API Gateway URL: $TF_OUTPUT_API_GATEWAY_URL_PROD"
