@@ -39,3 +39,26 @@ jobs:
     - name: Show Plan Output - Prod
       run: |
         echo "Prod API Gateway URL: $TF_OUTPUT_API_GATEWAY_URL_PROD"
+    - name: Terraform Apply - Prod
+      run: |
+        ls -la  # List files in the current directory for debugging
+        terraform apply -auto-approve tfplan
+      working-directory: Terraform  # Adjust the working directory
+
+    - name: Show Prod Output
+      run: |
+        echo "Prod API Gateway URL: $TF_OUTPUT_API_GATEWAY_URL_PROD"
+   
+    - name: Terraform Destroy Plan - Prod
+      run: |
+        set -x
+        ls -la  # List files in the current directory for debugging
+        terraform plan -destroy -var-file=prod.tfvars -out=tfdestroyplan
+      working-directory: Terraform  # Adjust the working directory
+
+    - name: Terraform Destroy - Prod
+      run: |
+        set -x
+        ls -la  # List files in the current directory for debugging
+        terraform apply -auto-approve tfdestroyplan
+      working-directory: Terraform  # Adjust the working directory
